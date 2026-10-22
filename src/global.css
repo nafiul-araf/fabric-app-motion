@@ -1,0 +1,372 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Desktop-width but short viewports (a laptop browser, or an app embedded
+   in a portal iframe, is often ~600–760px tall): tighten chrome so the
+   scene still fits with no scroll. */
+@custom-variant short (@media (min-width: 1024px) and (max-height: 820px));
+
+/* ------------------------------------------------------------------ *
+ * "Keynote" — the app reads like the short motion-design reel (a GIF)
+ * it was modelled on: a porcelain stage with a faint graph-paper grid
+ * and soft peach starbursts in the corners, white glossy cards, an
+ * orange→pink→violet accent word, and marks that build on screen. Colours below were
+ * sampled from the reference GIF. Dark mode is the same film at night.
+ * Every colour a component uses lives here as a token.
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Surfaces & text — light */
+  --color-background: #FBFBFC;            /* GIF stage (#FAFAFA–#FCFDFD) */
+  --color-foreground: #1D1D1F;            /* GIF title ink */
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1D1D1F;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #1D1D1F;
+
+  --color-primary: #0071E3;              /* filled buttons — white text 4.98:1 */
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: #E8E8ED;
+  --color-secondary-foreground: #1D1D1F;
+  --color-muted: #EDEDF0;
+  --color-muted-foreground: #6E6E73;     /* 4.9:1 on porcelain */
+  --color-accent: #E6F0FC;
+  --color-accent-foreground: #0058B0;    /* accent text, links */
+
+  --color-destructive: #D70015;
+  --color-destructive-foreground: #FFFFFF;
+  --color-positive: #1E7B34;             /* +delta text — 5.4:1 on white */
+  --color-negative: #C9001A;             /* −delta text — 5.6:1 on white */
+
+  --color-border: #ECECF0;
+  --color-input: #D2D2D7;
+  --color-ring: #0071E3;
+  --color-hairline: rgb(0 0 0 / 0.07);   /* chart gridlines */
+  --color-hover: #F2F2F5;
+
+  /* Stage decoration (sampled from the GIF) */
+  --color-grid: #EBEBEF;                  /* graph-paper lines */
+  --color-burst: #F2E6E0;                 /* peach starburst fill */
+  --color-burst-edge: #EEDCD6;
+
+  /* Accent word gradient (GIF title "Motion"): orange → pink → violet */
+  --color-accent-1: #F97F2F;
+  --color-accent-2: #F53C73;
+  --color-accent-3: #BB59E7;
+
+  /* The Dynamic Island is hardware: black in both themes. */
+  --color-island: #000000;
+  --color-island-foreground: #F5F5F7;
+  --color-island-muted: #A1A1A6;
+
+  /* Glass (dock, sheet, tooltip) */
+  --color-glass: rgb(255 255 255 / 0.72);
+  --color-glass-strong: rgb(255 255 255 / 0.88);
+  --color-glass-border: rgb(0 0 0 / 0.08);
+
+  /* Glossy controls */
+  --color-knob: #FFFFFF;
+  --color-gloss: rgb(255 255 255 / 0.38);
+  --color-backdrop: rgb(0 0 0 / 0.28);
+
+  /* Chart marks — Apple system palette (light variants) */
+  --color-series-1: #1B6ED6;              /* GIF bar blue (base) */
+  --color-series-1-light: #53A1F7;        /* GIF bar blue (top of gradient) */
+  --color-series-2: #AF52DE;
+  --color-series-3: #F97F2F;              /* the accent orange */
+  --color-series-4: #30B0C7;
+  --color-series-5: #F53C73;              /* the accent pink */
+  --color-series-6: #2CBD51;              /* GIF "+200%" green */
+  --color-series-7: #5856D6;
+  --color-series-muted: #AEAEB2;
+  --color-up: #2CBD51;
+  --color-up-light: #5FD97E;
+  --color-down: #FF3B30;
+  --color-down-light: #FF7A70;
+
+  /* Radius — continuous, generous corners */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-2xl: 18px;
+  --radius-3xl: 22px;    /* cards */
+  --radius-4xl: 28px;    /* dock */
+  --radius-full: 9999px;
+  --radius: 10px;
+
+  /* Spacing — 4px grid */
+  --spacing-none: 0;
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-s-nudge: 6px;
+  --spacing-s: 8px;
+  --spacing-m-nudge: 10px;
+  --spacing-m: 12px;
+  --spacing-l: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+  --spacing-xxxl: 32px;
+
+  /* Type scale */
+  --text-100: 11px;
+  --text-200: 12px;
+  --text-300: 13px;
+  --text-400: 15px;
+  --text-500: 17px;
+  --text-600: 21px;
+  --text-hero-700: 26px;
+  --text-hero-800: 30px;
+  --text-hero-900: 38px;
+  --text-hero-1000: 56px;
+
+  --leading-100: 14px;
+  --leading-200: 16px;
+  --leading-300: 18px;
+  --leading-400: 20px;
+  --leading-500: 22px;
+  --leading-600: 26px;
+  --leading-hero-700: 30px;
+  --leading-hero-800: 34px;
+  --leading-hero-900: 42px;
+  --leading-hero-1000: 60px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Geist is self-hosted (@fontsource-variable/geist) so the app never
+     depends on a font CDN. */
+  --font-heading: 'Geist Variable', 'Segoe UI Variable Display', system-ui, -apple-system, sans-serif;
+  --font-base: 'Geist Variable', 'Segoe UI Variable Text', system-ui, -apple-system, sans-serif;
+  --font-monospace: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --font-numeric: 'Geist Variable', 'Segoe UI Variable Display', system-ui, sans-serif;
+
+  --icon-size-100: 12px;
+  --icon-size-200: 16px;
+  --icon-size-300: 20px;
+  --icon-size-400: 24px;
+  --icon-size-500: 28px;
+  --icon-size-600: 32px;
+  --icon-size-700: 48px;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 12px 32px -14px rgb(31 41 64 / 0.16);
+  --shadow-float: 0 18px 50px -12px rgb(0 0 0 / 0.28), 0 2px 6px rgb(0 0 0 / 0.08);
+}
+
+@utility icon-size-* {
+  width: --value(--icon-size-*);
+  height: --value(--icon-size-*);
+}
+
+@layer base {
+  .dark {
+    --color-background: #000000;
+    --color-foreground: #F5F5F7;
+    --color-card: #0F0F11;
+    --color-card-foreground: #F5F5F7;
+    --color-popover: #1C1C1E;
+    --color-popover-foreground: #F5F5F7;
+
+    --color-primary: #0071E3;
+    --color-primary-foreground: #FFFFFF;
+    --color-secondary: #1C1C1E;
+    --color-secondary-foreground: #F5F5F7;
+    --color-muted: #1A1A1D;
+    --color-muted-foreground: #98989D;   /* 6.6:1 on card */
+    --color-accent: #0B2440;
+    --color-accent-foreground: #6CB6FF;
+
+    --color-destructive: #FF453A;
+    --color-destructive-foreground: #000000;
+    --color-positive: #30D158;
+    --color-negative: #FF6961;
+
+    --color-border: #222225;
+    --color-input: #3A3A3C;
+    --color-ring: #2997FF;
+    --color-hairline: rgb(255 255 255 / 0.07);
+    --color-hover: #1A1A1D;
+
+    --color-glass: rgb(28 28 30 / 0.62);
+    --color-glass-strong: rgb(28 28 30 / 0.86);
+    --color-glass-border: rgb(255 255 255 / 0.10);
+
+    --color-grid: rgb(255 255 255 / 0.05);
+    --color-burst: rgb(249 127 47 / 0.07);
+    --color-burst-edge: rgb(249 127 47 / 0.09);
+
+    --color-gloss: rgb(255 255 255 / 0.22);
+    --color-backdrop: rgb(0 0 0 / 0.5);
+
+    --color-series-1: #0A84FF;
+    --color-series-1-light: #64B5FF;
+    --color-series-2: #BF5AF2;
+    --color-series-3: #FF9548;
+    --color-series-4: #40CBE0;
+    --color-series-5: #FF5C8A;
+    --color-series-6: #30D158;
+    --color-series-7: #5E5CE6;
+    --color-series-muted: #636366;
+    --color-up: #30D158;
+    --color-up-light: #6EE58F;
+    --color-down: #FF453A;
+    --color-down-light: #FF8A80;
+
+    --shadow-card: 0 0 0 1px rgb(255 255 255 / 0.02), 0 12px 32px -16px rgb(0 0 0 / 0.9);
+    --shadow-float: 0 24px 60px -12px rgb(0 0 0 / 0.85), 0 0 0 1px rgb(255 255 255 / 0.06);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-base);
+  }
+
+  select,
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* ------------------------------------------------------------------ *
+ * Signature effects
+ * ------------------------------------------------------------------ */
+
+/* The spectrum — one gradient, used sparingly: the island's live ring,
+   the hero headline sheen, the active dock dot. */
+@property --km-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@utility km-spectrum-text {
+  background-image: linear-gradient(95deg, var(--color-accent-1) 0%, var(--color-accent-2) 55%, var(--color-accent-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility km-spectrum-bg {
+  background-image: conic-gradient(from var(--km-angle), var(--color-accent-1), var(--color-accent-2), var(--color-accent-3), var(--color-accent-1));
+}
+
+/* The stage: porcelain + a faint graph-paper grid, as in the reference GIF. */
+@utility km-stage-grid {
+  background-color: var(--color-background);
+  background-image:
+    linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+}
+
+/* Pastel halos inside cards (the GIF tiles' soft glows). */
+@utility km-halo-* {
+  background-image: radial-gradient(70% 60% at 0% 0%, color-mix(in srgb, --value(--color-series-*) 9%, transparent), transparent 70%);
+}
+
+/* Frosted glass — dock, sheet, tooltip, popovers. */
+@utility km-glass {
+  background-color: var(--color-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility km-glass-strong {
+  background-color: var(--color-glass-strong);
+  -webkit-backdrop-filter: saturate(180%) blur(28px);
+  backdrop-filter: saturate(180%) blur(28px);
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-float {
+  box-shadow: var(--shadow-float);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@keyframes km-spin {
+  to { --km-angle: 360deg; }
+}
+
+@keyframes km-shimmer {
+  from { background-position: 150% 0; }
+  to   { background-position: -50% 0; }
+}
+
+/* Loading skeleton — a slow light sweep, not a pulse. */
+.km-skeleton {
+  background-color: var(--color-muted);
+  background-image: linear-gradient(100deg, transparent 30%, color-mix(in srgb, var(--color-foreground) 7%, transparent) 50%, transparent 70%);
+  background-size: 200% 100%;
+}
+
+/* Glossy card sheen — a specular highlight that follows the pointer
+   (--mx / --my are set by the Card component). */
+.km-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--color-foreground) 7%, transparent), transparent 55%);
+}
+.km-sheen:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .km-skeleton { animation: km-shimmer 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .km-spin { animation: km-spin 2.4s linear infinite; }
+}
+
+/* Glossy marks — bars, columns and dots fill with a light-top gradient
+   (defs: <MarkGradients/> in stage.tsx). Strokes and swatches are untouched. */
+svg rect.fill-series-1, svg path.fill-series-1, svg circle.fill-series-1 { fill: url(#km-grad-series-1); }
+svg rect.fill-up, svg path.fill-up { fill: url(#km-grad-up); }
+svg rect.fill-down, svg path.fill-down { fill: url(#km-grad-down); }
+
+@keyframes km-turn {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .km-burst { animation: km-turn 140s linear infinite; }
+  .km-burst-rev { animation: km-turn 180s linear infinite reverse; }
+}
+
+/* Thin, quiet scrollbars for the few internal scroll areas (tables). */
+.km-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-input) transparent;
+}
