@@ -23,6 +23,90 @@ Then open http://localhost:5173. `npm test` checks the sample-data maths, `npm r
 
 ## How I built it
 
+### The original Fabric App (approximate prompts)
+
+I built the first version of the app a few months earlier, and those conversations are no longer saved, so these are reconstructed from my notes. They show what I asked for, roughly in order, not my exact words.
+
+**1.**
+
+```text
+Create a Fabric App with the Rayfin dataapp template and connect it to this semantic model: <link to the semantic model>
+```
+
+**2.**
+
+```text
+Build an overview page: KPI cards for total sales, gross margin and budget achievement, a sales trend against prior year, sales by category, sales by region and the top 10 customers.
+```
+
+**3.**
+
+```text
+Use the brand kit in the references folder for the colours, fonts and logo.
+```
+
+**4.**
+
+```text
+Follow the layout of the Power BI report in the references folder.
+```
+
+**5.**
+
+```text
+Deploy the app to the <workspace name> workspace.
+```
+
+**6.**
+
+```text
+Add more pages: Performance, Variance, Product, Customer, Region and Budget. Each page should have its own KPI cards and slicers. Don't repeat the same cards on every page.
+```
+
+**7.**
+
+```text
+Move the slicers into a filter panel that opens from the right and is hidden by default. Add search inside each slicer and a reset button on each one, like Power BI.
+```
+
+**8.**
+
+```text
+Replace the year dropdown with a date range slicer on the Date column, shown as mm-YYYY.
+```
+
+**9.**
+
+```text
+Use a donut for sales by category and product type, a pie for customer group and a funnel for segment. No data labels on the charts, axis values in millions, and green/red arrows for YoY in the tables.
+```
+
+**10.**
+
+```text
+Add a one-line insight in the header of every page.
+```
+
+**11.**
+
+```text
+Add pages for revenue quality and leakage, trends and momentum, and the product portfolio.
+```
+
+**12.**
+
+```text
+Laptop screen or desktop, wherever I see the app, it should fit. No scrolling.
+```
+
+**13.**
+
+```text
+Rename the app to sales-analytics-app and move it to the <folder name> folder.
+```
+
+### The motion version (exact prompts)
+
 These are the prompts I gave Claude Code to build the motion version of my Fabric App, copied exactly as I typed them. My workspace link and names are replaced with placeholders.
 
 **1.**
