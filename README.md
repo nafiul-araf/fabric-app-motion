@@ -10,16 +10,55 @@ The original app reads live data from a Power BI semantic model. This repo runs 
 
 Built with React 19, TypeScript, Framer Motion, d3-scale/d3-shape and Tailwind CSS v4.
 
-**Contents:** [Run the demo](#run-the-demo) · [How I built it](#how-i-built-it) · [What's in this repo](#whats-in-this-repo) · [How the motion fits together](#how-the-motion-fits-together) · [Using your own data](#using-your-own-data) · [Screenshots](#screenshots)
+**Contents:** [Run it on localhost](#run-it-on-localhost) · [How I built it](#how-i-built-it) · [What's in this repo](#whats-in-this-repo) · [How the motion fits together](#how-the-motion-fits-together) · [Using your own data](#using-your-own-data) · [Screenshots](#screenshots)
 
-## Run the demo
+## Run it on localhost
 
-```bash
-npm install
-npm run dev
-```
+You don't need a Fabric or Power BI account for this. The demo creates its own sample data in the browser.
 
-Then open http://localhost:5173. `npm test` checks the sample-data maths, `npm run build` makes a production build.
+### Prerequisites
+
+- **Node.js 20.19+, 22.13+ or 24+**, which includes npm. Download it from [nodejs.org](https://nodejs.org) (the LTS version is fine). Check what you have with `node --version`.
+- **Git**, to clone the repo. Or use **Code → Download ZIP** on GitHub and unzip it.
+- A current browser: Chrome, Edge, Firefox or Safari.
+
+### Steps
+
+1. Clone the repo and go into the folder:
+
+   ```bash
+   git clone https://github.com/nafiul-araf/fabric-app-motion.git
+   cd fabric-app-motion
+   ```
+
+2. Install the packages (takes a minute the first time):
+
+   ```bash
+   npm install
+   ```
+
+3. Start the app:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open **http://localhost:5173** in your browser. The page builds itself in, then keeps moving. Stop the server with `Ctrl + C` in the terminal.
+
+### Other commands
+
+| Command | What it does |
+| --- | --- |
+| `npm test` | Runs the unit tests for the sample-data maths |
+| `npm run build` | Makes a production build in `dist/` |
+| `npm run preview` | Serves that build at http://localhost:4173 |
+| `npm run lint` | Checks the code with ESLint |
+
+### If something goes wrong
+
+- **`npm install` fails or complains about the engine:** your Node.js is too old. Install a version from the list above and try again.
+- **Port 5173 is already in use:** Vite picks the next free port and prints it in the terminal, so open that address. To choose one yourself, run `npm run dev -- --port 3000`.
+- **On Windows PowerShell, `npm` "cannot be loaded because running scripts is disabled":** run the same commands in Command Prompt, or use `npm.cmd install` and `npm.cmd run dev`.
 
 ## How I built it
 
