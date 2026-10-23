@@ -2,7 +2,7 @@
 
 # Fabric App Motion
 
-**Motion patterns for data apps, taken from a Microsoft Fabric App I built with Claude Code.**
+**Motion patterns for data apps, taken from a Microsoft Fabric App I built with Claude Code and Rayfin.**
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)
@@ -22,7 +22,7 @@
 </div>
 
 > [!IMPORTANT]
-> **Want to build one yourself?** Jump to **[How I built it](#how-i-built-it)** for every prompt I gave Claude Code, in order.
+> **Want to build one yourself?** Jump to **[How I built it](#how-i-built-it)** for the prompts I gave Claude Code, in order.
 
 ## What it does
 
@@ -37,10 +37,7 @@
 
 ## How I built it
 
-I built the app with Claude Code and Rayfin in two rounds: first the Fabric App itself (13 prompts), then the motion version this repo comes from (5 prompts).
-
-> [!NOTE]
-> Placeholders like `<workspace name>` replace my real workspace link and names.
+I built the app with [Claude Code](https://claude.com/claude-code) and [Rayfin](https://github.com/microsoft/rayfin) in two rounds: first the Fabric App itself (13 prompts), then the motion version this repo comes from (5 prompts). Placeholders like `<workspace name>` stand in for my real workspace link and names.
 
 ### Round 1: the original Fabric App
 
@@ -145,7 +142,7 @@ These are **exact**, copied as I typed them, typos included.
 ## Run it on localhost
 
 > [!TIP]
-> You don't need a Fabric or Power BI account. The demo creates its own sample data in the browser.
+> No Fabric or Power BI account needed. The sample data is generated in your browser.
 
 ### Prerequisites
 
@@ -157,26 +154,26 @@ These are **exact**, copied as I typed them, typos included.
 
 ### Steps
 
-**1. Clone the repo and go into the folder**
+**1 · Clone the repo and go into the folder**
 
 ```bash
 git clone https://github.com/nafiul-araf/fabric-app-motion.git
 cd fabric-app-motion
 ```
 
-**2. Install the packages** (about a minute the first time)
+**2 · Install the packages** (about a minute the first time)
 
 ```bash
 npm install
 ```
 
-**3. Start the app**
+**3 · Start the app**
 
 ```bash
 npm run dev
 ```
 
-**4. Open [http://localhost:5173](http://localhost:5173)** in your browser. The page builds itself in, then keeps moving. To stop the server, press `Ctrl + C` in the terminal.
+**4 · Open [http://localhost:5173](http://localhost:5173)** in your browser. The page builds itself in, then keeps moving. To stop the server, press `Ctrl + C` in the terminal.
 
 ### Other commands
 
