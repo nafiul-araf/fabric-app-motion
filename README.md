@@ -155,7 +155,7 @@ These are **approximate**. I built the first version a few months earlier and th
 These are **exact**, copied as I typed them, typos included.
 
 <details open>
-<summary><b>Show the 7 prompts</b></summary>
+<summary><b>Show the 5 prompts</b></summary>
 
 **1 · Convert the app**
 
@@ -183,15 +183,7 @@ These are **exact**, copied as I typed them, typos included.
 
 > Suppose if I click any bar/points in a specific visual of any chart, I will filter the other as well based on this like a power bi visual does. the gif movement also be there in that situation. Is this possible? If so, do this
 
-**5 · Finish after an interruption**
-
-> Do the remaining works after I interuppted it
-
-**6 · A bit faster**
-
-> In the app can you please make faster the movement a bit?
-
-**7 · 50% faster**
+**5 · 50% faster**
 
 > can you make 50% faster>
 
