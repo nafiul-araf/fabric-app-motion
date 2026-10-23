@@ -97,81 +97,55 @@ These are **approximate**. I built the first version a few months earlier and th
 
 **1 · Create the app and connect the model**
 
-```text
-Create a Fabric App with the Rayfin dataapp template and connect it to this semantic model: <link to the semantic model>
-```
+> Create a Fabric App with the Rayfin dataapp template and connect it to this semantic model: `<link to the semantic model>`
 
 **2 · Overview page**
 
-```text
-Build an overview page: KPI cards for total sales, gross margin and budget achievement, a sales trend against prior year, sales by category, sales by region and the top 10 customers.
-```
+> Build an overview page: KPI cards for total sales, gross margin and budget achievement, a sales trend against prior year, sales by category, sales by region and the top 10 customers.
 
 **3 · Brand**
 
-```text
-Use the brand kit in the references folder for the colours, fonts and logo.
-```
+> Use the brand kit in the references folder for the colours, fonts and logo.
 
 **4 · Layout**
 
-```text
-Follow the layout of the Power BI report in the references folder.
-```
+> Follow the layout of the Power BI report in the references folder.
 
 **5 · Deploy**
 
-```text
-Deploy the app to the <workspace name> workspace.
-```
+> Deploy the app to the `<workspace name>` workspace.
 
 **6 · More pages**
 
-```text
-Add more pages: Performance, Variance, Product, Customer, Region and Budget. Each page should have its own KPI cards and slicers. Don't repeat the same cards on every page.
-```
+> Add more pages: Performance, Variance, Product, Customer, Region and Budget. Each page should have its own KPI cards and slicers. Don't repeat the same cards on every page.
 
 **7 · Filter panel**
 
-```text
-Move the slicers into a filter panel that opens from the right and is hidden by default. Add search inside each slicer and a reset button on each one, like Power BI.
-```
+> Move the slicers into a filter panel that opens from the right and is hidden by default. Add search inside each slicer and a reset button on each one, like Power BI.
 
 **8 · Date range slicer**
 
-```text
-Replace the year dropdown with a date range slicer on the Date column, shown as mm-YYYY.
-```
+> Replace the year dropdown with a date range slicer on the Date column, shown as mm-YYYY.
 
 **9 · Chart choices**
 
-```text
-Use a donut for sales by category and product type, a pie for customer group and a funnel for segment. No data labels on the charts, axis values in millions, and green/red arrows for YoY in the tables.
-```
+> Use a donut for sales by category and product type, a pie for customer group and a funnel for segment. No data labels on the charts, axis values in millions, and green/red arrows for YoY in the tables.
 
 **10 · Page insights**
 
-```text
-Add a one-line insight in the header of every page.
-```
+> Add a one-line insight in the header of every page.
 
 **11 · More analysis pages**
 
-```text
-Add pages for revenue quality and leakage, trends and momentum, and the product portfolio.
-```
+> Add pages for revenue quality and leakage, trends and momentum, and the product portfolio.
 
 **12 · Fit any screen**
 
-```text
-Laptop screen or desktop, wherever I see the app, it should fit. No scrolling.
-```
+> Laptop screen or desktop, wherever I see the app, it should fit. No scrolling.
 
 **13 · Rename and move**
 
-```text
-Rename the app to sales-analytics-app and move it to the <folder name> folder.
-```
+> Rename the app to sales-analytics-app and move it to the `<folder name>` folder.
 
 </details>
 
@@ -184,55 +158,41 @@ These are **exact**, copied as I typed them, typos included.
 
 **1 · Convert the app**
 
-```text
-<link to my app in the Fabric portal>
-
-This my fabric app.
-The workspace name is: <workspace name>
-App Name is: sales-analytics-app (folder is <folder name>)
-
-This is a linkedln post for Claude Motion: https://www.linkedin.com/posts/charlie-hills_anthropic-finally-dropped-claude-motion-share-7515309471343214592--wgN/
-
-convert my sales analytics app to something similar UI in the motion linkedin post and have similar motion in the app.
-
-Save it in the same workspace and same folder. Name it to sales-app-motion
-```
+> `<link to my app in the Fabric portal>`
+>
+> This my fabric app.\
+> The workspace name is: `<workspace name>`\
+> App Name is: sales-analytics-app (folder is `<folder name>`)
+>
+> This is a linkedln post for Claude Motion: https://www.linkedin.com/posts/charlie-hills_anthropic-finally-dropped-claude-motion-share-7515309471343214592--wgN/
+>
+> convert my sales analytics app to something similar UI in the motion linkedin post and have similar motion in the app.
+>
+> Save it in the same workspace and same folder. Name it to sales-app-motion
 
 **2 · Three pages and the GIF's background**
 
-```text
-No need to build ten pages, for now create 3 important pages. also you have created the dark background. It should be the background same as the given likedln posts gif's background.
-```
+> No need to build ten pages, for now create 3 important pages. also you have created the dark background. It should be the background same as the given likedln posts gif's background.
 
 **3 · Move like the GIF**
 
-```text
-Can you make the pages as gif like movemment?
-```
+> Can you make the pages as gif like movemment?
 
 **4 · Cross-filtering**
 
-```text
-Suppose if I click any bar/points in a specific visual of any chart, I will filter the other as well based on this like a power bi visual does. the gif movement also be there in that situation. Is this possible? If so, do this
-```
+> Suppose if I click any bar/points in a specific visual of any chart, I will filter the other as well based on this like a power bi visual does. the gif movement also be there in that situation. Is this possible? If so, do this
 
 **5 · Finish after an interruption**
 
-```text
-Do the remaining works after I interuppted it
-```
+> Do the remaining works after I interuppted it
 
 **6 · A bit faster**
 
-```text
-In the app can you please make faster the movement a bit?
-```
+> In the app can you please make faster the movement a bit?
 
 **7 · 50% faster**
 
-```text
-can you make 50% faster>
-```
+> can you make 50% faster>
 
 </details>
 
