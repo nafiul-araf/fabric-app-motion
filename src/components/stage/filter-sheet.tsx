@@ -10,7 +10,7 @@ import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "re
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp, Check, ChevronDown, RotateCcw, Search, SlidersHorizontal, X } from "lucide-react";
-import { spring, useMotionOK, fast, quick } from "@/lib/motion";
+import { BLUR_FADE, spring, useMotionOK, fast, quick } from "@/lib/motion";
 import { ALL, DEFAULT_FILTERS, activeFilterCount, membersOf, type Filters } from "@/data/filters";
 import { DIM_LABEL } from "@/data/queries";
 import type { SlicerKey } from "./nav";
@@ -318,7 +318,7 @@ function ApplyButton({ dirty, onApply, onClose }: { dirty: boolean; onApply: () 
                         </motion.span>
                     )}
                     {phase === "done" && (
-                        <motion.span key="done" {...fade} transition={spring.bouncy} className="relative flex h-10 w-10 items-center justify-center">
+                        <motion.span key="done" {...fade} transition={{ ...spring.bouncy, filter: BLUR_FADE }} className="relative flex h-10 w-10 items-center justify-center">
                             {[0, 0.18].map((d) => (
                                 <motion.span
                                     key={d}

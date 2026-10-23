@@ -18,7 +18,7 @@ import { Check, MousePointerClick, TrendingDown, TrendingUp, X } from "lucide-re
 import { useQuery } from "@/data/use-query";
 import { buildTile, KPI_ICON, type KpiKey, type Tile } from "@/lib/kpi-tiles";
 import { formatSignedPercent } from "@/lib/format";
-import { EASE_APPLE, EASE_OUT, SCENE, spring, useMotionOK, fast } from "@/lib/motion";
+import { BLUR_FADE, EASE_APPLE, EASE_OUT, SCENE, spring, useMotionOK, fast } from "@/lib/motion";
 import { kpiSummary } from "@/data/queries";
 import { scopeLabel, type Filters } from "@/data/filters";
 import { ChartError } from "@/components/charts/core";
@@ -119,7 +119,7 @@ function SelectionChip() {
                     initial={{ opacity: 0, scale: 0.6, x: -6, filter: "blur(4px)" }}
                     animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
                     exit={{ opacity: 0, scale: 0.6, filter: "blur(4px)" }}
-                    transition={spring.bouncy}
+                    transition={{ ...spring.bouncy, filter: BLUR_FADE }}
                     className="inline-flex min-w-0 max-w-[260px] items-center gap-xxs rounded-full bg-primary py-[1px] pl-s pr-xxs text-[length:var(--text-200)] font-semibold text-primary-foreground shadow-card"
                     title={`Cross-filtered by ${text}. Click the selection again, press Esc, or ✕ to clear.`}
                 >
@@ -242,7 +242,7 @@ function GoalRing({ achieved, delay, replay }: { achieved: number; delay: number
                 <motion.span
                     initial={ok ? { scale: 0, opacity: 0, filter: "blur(4px)" } : false}
                     animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-                    transition={{ ...spring.bouncy, delay: doneAt - fast(0.1) }}
+                    transition={{ ...spring.bouncy, delay: doneAt - fast(0.1), filter: { ...BLUR_FADE, delay: doneAt - fast(0.1) } }}
                     className="relative text-up"
                     aria-hidden
                 >

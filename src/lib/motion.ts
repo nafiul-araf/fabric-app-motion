@@ -32,6 +32,12 @@ export const EASE_APPLE = [0.32, 0.72, 0, 1] as const;
 /** Expo-style ease-out for line draws and reveals. */
 export const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * Blur fades always tween. A spring overshoots its target, and a blur that
+ * dips below blur(0px) is invalid CSS, so pair springs with this for `filter`.
+ */
+export const BLUR_FADE = { duration: fast(0.3), ease: EASE_OUT };
+
 export const spring = {
     /** UI controls, tooltips, chips. */
     snappy: quick({ type: "spring", stiffness: 420, damping: 34, mass: 0.9 }),

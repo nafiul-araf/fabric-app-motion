@@ -17,7 +17,7 @@ import {
     type MotionValue,
 } from "framer-motion";
 import { PAGES, type PageDef, type PageKey } from "./nav";
-import { spring, useMotionOK, fast } from "@/lib/motion";
+import { BLUR_FADE, spring, useMotionOK, fast } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 const REACH = 130;
@@ -95,7 +95,7 @@ function DockTile({ page, base, peak, active, pointerX, onSelect, onKey }: TileP
                         initial={{ opacity: 0, y: 6, scale: 0.9, filter: "blur(4px)" }}
                         animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                         exit={{ opacity: 0, y: 4, scale: 0.95 }}
-                        transition={spring.snappy}
+                        transition={{ ...spring.snappy, filter: BLUR_FADE }}
                         className="km-glass-strong pointer-events-none absolute bottom-full mb-s whitespace-nowrap rounded-lg px-s py-xxs text-[length:var(--text-200)] font-medium text-popover-foreground shadow-float"
                     >
                         {page.label}

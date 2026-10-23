@@ -15,7 +15,7 @@ import { Filter } from "lucide-react";
 import { BuildContext, LegendSlotContext, REPLAY_EXIT_S, ReplayContext } from "@/components/charts/core";
 import { CardIdContext, useCrossFilter } from "@/components/charts/cross-filter";
 import { useReelBeat } from "./reel";
-import { EASE_APPLE, SCENE, spring, useMotionOK, fast } from "@/lib/motion";
+import { BLUR_FADE, EASE_APPLE, SCENE, spring, useMotionOK, fast } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface CardProps {
@@ -104,7 +104,7 @@ export function Card({ title, subtitle, action, index, className, style, childre
                                 initial={{ opacity: 0, scale: 0.6, filter: "blur(4px)" }}
                                 animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                                 exit={{ opacity: 0, scale: 0.6, filter: "blur(4px)" }}
-                                transition={spring.bouncy}
+                                transition={{ ...spring.bouncy, filter: BLUR_FADE }}
                                 title={`Filtered by ${filteredBy.field.label}: ${filteredBy.displays.join(", ")}`}
                                 className="inline-flex max-w-[140px] items-center gap-xxs rounded-full bg-accent px-s py-xxs text-[length:var(--text-100)] font-semibold text-accent-foreground"
                             >

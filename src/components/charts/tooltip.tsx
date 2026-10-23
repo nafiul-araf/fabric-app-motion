@@ -9,7 +9,7 @@ import { createContext, useCallback, useContext, useMemo, useRef, useState, type
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { fast } from "@/lib/motion";
+import { BLUR_FADE, fast } from "@/lib/motion";
 
 export interface TooltipRow {
     label: string;
@@ -88,7 +88,7 @@ export function TooltipProvider({ children }: { children: ReactNode }) {
                             initial={{ opacity: 0, scale: 0.94, filter: "blur(4px)" }}
                             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                             exit={{ opacity: 0, scale: 0.96, transition: { duration: fast(0.12) } }}
-                            transition={{ type: "spring", stiffness: 520, damping: 32 }}
+                            transition={{ type: "spring", stiffness: 520, damping: 32, filter: BLUR_FADE }}
                             style={{ left: sx, top: sy, width: PANEL_W, transformOrigin: "top left" }}
                             className="km-glass-strong pointer-events-none fixed z-[60] rounded-xl px-m py-s shadow-float"
                         >
