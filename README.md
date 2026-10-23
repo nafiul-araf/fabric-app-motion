@@ -1,49 +1,68 @@
+<div align="center">
+
 # Fabric App Motion
 
-Motion patterns for data apps, taken from a Microsoft Fabric App I built with Claude Code.
+**Motion patterns for data apps, taken from a Microsoft Fabric App I built with Claude Code.**
 
-![The demo: the page builds, a click on a region filters every other visual, then the other pages open from the dock](docs/demo.gif)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-0055FF?logo=framer&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Built with Claude Code](https://img.shields.io/badge/Built_with-Claude_Code-D97757?logo=claude&logoColor=white)
 
-Charts build one mark at a time, KPI numbers roll like an odometer, and a status pill grows into a live query timer while data loads. Each card replays its build on a loop, out of step with its neighbours, so the page keeps moving without getting busy. Click a bar, slice, month or table row and the other visuals filter to it, then rebuild with the same motion.
+[Run it on localhost](#run-it-on-localhost) · [How I built it](#how-i-built-it) · [What's inside](#whats-inside) · [How the motion works](#how-the-motion-works) · [Use your own data](#use-your-own-data) · [Screenshots](#screenshots)
 
-The original app reads live data from a Power BI semantic model. This repo runs on generated sample data instead (a made-up coffee equipment wholesaler, every name invented), so it works anywhere with no account or connection.
+<img src="docs/demo.gif" alt="The demo: the page builds, a click on a region filters every other visual, then the other pages open from the dock" width="100%">
 
-Built with React 19, TypeScript, Framer Motion, d3-scale/d3-shape and Tailwind CSS v4.
+</div>
 
-**Contents:** [Run it on localhost](#run-it-on-localhost) · [How I built it](#how-i-built-it) · [What's in this repo](#whats-in-this-repo) · [How the motion fits together](#how-the-motion-fits-together) · [Using your own data](#using-your-own-data) · [Screenshots](#screenshots)
+## What it does
+
+- **Charts build one mark at a time.** Bars grow, lines draw, donuts sweep closed.
+- **KPI numbers roll into place** like an odometer.
+- **A status pill turns into a live query timer** while data loads, then shows the page's one-line insight.
+- **Every card replays its build on a loop**, out of step with its neighbours, so the page keeps moving without getting busy.
+- **Click a bar, slice, month or table row** and every other visual filters to it, Power BI style, then rebuilds with the same motion.
+
+> [!NOTE]
+> The original app reads live data from a Power BI semantic model. This repo runs on generated sample data instead (a made-up coffee equipment wholesaler, every name invented), so it works anywhere with no account or connection.
 
 ## Run it on localhost
 
-You don't need a Fabric or Power BI account for this. The demo creates its own sample data in the browser.
+> [!TIP]
+> You don't need a Fabric or Power BI account. The demo creates its own sample data in the browser.
 
 ### Prerequisites
 
-- **Node.js 20.19+, 22.13+ or 24+**, which includes npm. Download it from [nodejs.org](https://nodejs.org) (the LTS version is fine). Check what you have with `node --version`.
-- **Git**, to clone the repo. Or use **Code → Download ZIP** on GitHub and unzip it.
-- A current browser: Chrome, Edge, Firefox or Safari.
+| You need | Version | Check with |
+| --- | --- | --- |
+| [Node.js](https://nodejs.org) (includes npm) | 20.19+, 22.13+ or 24+ (the LTS is fine) | `node --version` |
+| [Git](https://git-scm.com) | any recent version, or use **Code → Download ZIP** on GitHub | `git --version` |
+| A browser | current Chrome, Edge, Firefox or Safari | |
 
 ### Steps
 
-1. Clone the repo and go into the folder:
+**1. Clone the repo and go into the folder**
 
-   ```bash
-   git clone https://github.com/nafiul-araf/fabric-app-motion.git
-   cd fabric-app-motion
-   ```
+```bash
+git clone https://github.com/nafiul-araf/fabric-app-motion.git
+cd fabric-app-motion
+```
 
-2. Install the packages (takes a minute the first time):
+**2. Install the packages** (about a minute the first time)
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-3. Start the app:
+**3. Start the app**
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-4. Open **http://localhost:5173** in your browser. The page builds itself in, then keeps moving. Stop the server with `Ctrl + C` in the terminal.
+**4. Open [http://localhost:5173](http://localhost:5173)** in your browser. The page builds itself in, then keeps moving. To stop the server, press `Ctrl + C` in the terminal.
 
 ### Other commands
 
@@ -54,101 +73,116 @@ You don't need a Fabric or Power BI account for this. The demo creates its own s
 | `npm run preview` | Serves that build at http://localhost:4173 |
 | `npm run lint` | Checks the code with ESLint |
 
-### If something goes wrong
+### Troubleshooting
 
-- **`npm install` fails or complains about the engine:** your Node.js is too old. Install a version from the list above and try again.
-- **Port 5173 is already in use:** Vite picks the next free port and prints it in the terminal, so open that address. To choose one yourself, run `npm run dev -- --port 3000`.
-- **On Windows PowerShell, `npm` "cannot be loaded because running scripts is disabled":** run the same commands in Command Prompt, or use `npm.cmd install` and `npm.cmd run dev`.
+| Problem | Fix |
+| --- | --- |
+| `npm install` fails or warns about the engine | Your Node.js is too old. Install a version from the table above and try again. |
+| Port 5173 is already in use | Vite picks the next free port and prints it in the terminal, so open that address. To choose one yourself: `npm run dev -- --port 3000` |
+| Windows PowerShell says `npm` "cannot be loaded because running scripts is disabled" | Run the same commands in Command Prompt, or use `npm.cmd install` and `npm.cmd run dev`. |
 
 ## How I built it
 
-### The original Fabric App (approximate prompts)
+I built the app with Claude Code in two rounds: first the Fabric App itself, then the motion version this repo comes from.
 
-I built the first version of the app a few months earlier, and those conversations are no longer saved, so these are reconstructed from my notes. They show what I asked for, roughly in order, not my exact words.
+> [!NOTE]
+> Placeholders like `<workspace name>` replace my real workspace link and names.
 
-**1.**
+### Round 1: the original Fabric App
+
+These are **approximate**. I built the first version a few months earlier and those conversations are no longer saved, so the prompts below are reconstructed from my notes. They show what I asked for, roughly in order, not my exact words.
+
+<details>
+<summary><b>Show the 13 prompts</b></summary>
+
+**1 · Create the app and connect the model**
 
 ```text
 Create a Fabric App with the Rayfin dataapp template and connect it to this semantic model: <link to the semantic model>
 ```
 
-**2.**
+**2 · Overview page**
 
 ```text
 Build an overview page: KPI cards for total sales, gross margin and budget achievement, a sales trend against prior year, sales by category, sales by region and the top 10 customers.
 ```
 
-**3.**
+**3 · Brand**
 
 ```text
 Use the brand kit in the references folder for the colours, fonts and logo.
 ```
 
-**4.**
+**4 · Layout**
 
 ```text
 Follow the layout of the Power BI report in the references folder.
 ```
 
-**5.**
+**5 · Deploy**
 
 ```text
 Deploy the app to the <workspace name> workspace.
 ```
 
-**6.**
+**6 · More pages**
 
 ```text
 Add more pages: Performance, Variance, Product, Customer, Region and Budget. Each page should have its own KPI cards and slicers. Don't repeat the same cards on every page.
 ```
 
-**7.**
+**7 · Filter panel**
 
 ```text
 Move the slicers into a filter panel that opens from the right and is hidden by default. Add search inside each slicer and a reset button on each one, like Power BI.
 ```
 
-**8.**
+**8 · Date range slicer**
 
 ```text
 Replace the year dropdown with a date range slicer on the Date column, shown as mm-YYYY.
 ```
 
-**9.**
+**9 · Chart choices**
 
 ```text
 Use a donut for sales by category and product type, a pie for customer group and a funnel for segment. No data labels on the charts, axis values in millions, and green/red arrows for YoY in the tables.
 ```
 
-**10.**
+**10 · Page insights**
 
 ```text
 Add a one-line insight in the header of every page.
 ```
 
-**11.**
+**11 · More analysis pages**
 
 ```text
 Add pages for revenue quality and leakage, trends and momentum, and the product portfolio.
 ```
 
-**12.**
+**12 · Fit any screen**
 
 ```text
 Laptop screen or desktop, wherever I see the app, it should fit. No scrolling.
 ```
 
-**13.**
+**13 · Rename and move**
 
 ```text
 Rename the app to sales-analytics-app and move it to the <folder name> folder.
 ```
 
-### The motion version (exact prompts)
+</details>
 
-These are the prompts I gave Claude Code to build the motion version of my Fabric App, copied exactly as I typed them. My workspace link and names are replaced with placeholders.
+### Round 2: the motion version
 
-**1.**
+These are **exact**, copied as I typed them, typos included.
+
+<details open>
+<summary><b>Show the 7 prompts</b></summary>
+
+**1 · Convert the app**
 
 ```text
 <link to my app in the Fabric portal>
@@ -164,80 +198,116 @@ convert my sales analytics app to something similar UI in the motion linkedin po
 Save it in the same workspace and same folder. Name it to sales-app-motion
 ```
 
-**2.**
+**2 · Three pages and the GIF's background**
 
 ```text
 No need to build ten pages, for now create 3 important pages. also you have created the dark background. It should be the background same as the given likedln posts gif's background.
 ```
 
-**3.**
+**3 · Move like the GIF**
 
 ```text
 Can you make the pages as gif like movemment?
 ```
 
-**4.**
+**4 · Cross-filtering**
 
 ```text
 Suppose if I click any bar/points in a specific visual of any chart, I will filter the other as well based on this like a power bi visual does. the gif movement also be there in that situation. Is this possible? If so, do this
 ```
 
-**5.**
+**5 · Finish after an interruption**
 
 ```text
 Do the remaining works after I interuppted it
 ```
 
-**6.**
+**6 · A bit faster**
 
 ```text
 In the app can you please make faster the movement a bit?
 ```
 
-**7.**
+**7 · 50% faster**
 
 ```text
 can you make 50% faster>
 ```
 
-## What's in this repo
+</details>
 
-| Piece | File |
-| --- | --- |
-| Motion presets: springs, eases, and one `SPEED` constant that retimes everything | [src/lib/motion.ts](src/lib/motion.ts) |
-| Replay loop: each card rebuilds on its own beat, out of phase with the others | [src/components/stage/reel.tsx](src/components/stage/reel.tsx) |
-| Odometer digits for KPI tiles | [src/components/stage/odometer.tsx](src/components/stage/odometer.tsx) |
-| Status pill that turns into a query timer, then the page's one-line insight | [src/components/stage/island.tsx](src/components/stage/island.tsx) |
-| Cards that rise in, then hand off to their chart's build | [src/components/stage/card.tsx](src/components/stage/card.tsx) |
-| Dock navigation with magnification | [src/components/stage/dock.tsx](src/components/stage/dock.tsx) |
-| Filter sheet with an animated Apply button | [src/components/stage/filter-sheet.tsx](src/components/stage/filter-sheet.tsx) |
-| Click-to-cross-filter, Power BI style | [src/components/charts/cross-filter.tsx](src/components/charts/cross-filter.tsx) |
-| SVG charts: bar, trend (line/area), combo, donut/pie, funnel, waterfall, scatter, stacked bar, table | [src/components/charts/](src/components/charts/) |
-| Sample data, queries and a simulated round trip | [src/data/](src/data/) |
+## What's inside
+
+```text
+src/
+├── components/
+│   ├── charts/     SVG charts, the glass tooltip and cross-filtering
+│   ├── stage/      the app shell: cards, KPI strip, status pill, dock, filter sheet, replay loop
+│   └── pages/      the four pages: Overview, Variance, Customers, Products
+├── data/           sample data, query factories and useQuery
+├── lib/            motion presets, number formatting, KPI tiles, page insights
+├── global.css      colour, spacing and type tokens for light and dark
+└── main.tsx        entry point
+```
 
 The demo has four pages: the three from the motion app plus a Products page, so the scatter and stacked charts appear somewhere.
 
-## How the motion fits together
+**Key files**
 
-**One speed dial.** Every duration and delay goes through `fast()`, and every spring through `quick()`, which raises stiffness by SPEED² and damping by SPEED. The spring plays faster but bounces exactly the same. Change `SPEED` in `motion.ts` to retime the whole app.
+| What | Where |
+| --- | --- |
+| Motion presets and the `SPEED` dial | [src/lib/motion.ts](src/lib/motion.ts) |
+| Replay loop | [src/components/stage/reel.tsx](src/components/stage/reel.tsx) |
+| Odometer digits | [src/components/stage/odometer.tsx](src/components/stage/odometer.tsx) |
+| Status pill (query timer, then insight) | [src/components/stage/island.tsx](src/components/stage/island.tsx) |
+| Card entrance and build hand-off | [src/components/stage/card.tsx](src/components/stage/card.tsx) |
+| Dock navigation | [src/components/stage/dock.tsx](src/components/stage/dock.tsx) |
+| Filter sheet and animated Apply button | [src/components/stage/filter-sheet.tsx](src/components/stage/filter-sheet.tsx) |
+| Cross-filtering | [src/components/charts/cross-filter.tsx](src/components/charts/cross-filter.tsx) |
+| Charts: bar, trend, combo, donut/pie, funnel, waterfall, scatter, stacked bar, table | [src/components/charts/](src/components/charts/) |
 
-**Builds wait for their card.** A card publishes the moment it has landed, and the chart inside starts building after that, so marks never grow underneath an entrance animation.
+## How the motion works
 
-**Replays are remounts.** On each beat the card bumps a counter. The chart's plot is keyed on that counter plus the result version, so the old plot blurs out and a fresh one builds from zero. New data after a filter change replays the same way.
+| Idea | How it works |
+| --- | --- |
+| **One speed dial** | Every duration and delay goes through `fast()`, and every spring through `quick()`, which raises stiffness by SPEED² and damping by SPEED. Springs play faster but bounce exactly the same. Change `SPEED` in `motion.ts` to retime the whole app. |
+| **Builds wait for their card** | A card announces the moment it has landed, and the chart inside starts building after that, so marks never grow underneath an entrance animation. |
+| **Replays are remounts** | On each beat the card bumps a counter. The plot is keyed on that counter plus the result version, so the old plot blurs out and a fresh one builds from zero. New data after a filter change replays the same way. |
+| **The loop knows when to stop** | Hovering a card holds it. So do the Motion pause button, an open filter sheet and an active cross-filter selection. The loop never runs for reduced-motion users or in a hidden tab. |
+| **Cross-filtering** | Each query says which dimension its marks stand for. Clicking a mark stores a selection, and every other card re-queries with it while the clicked card only highlights. Ctrl/⌘/Shift-click adds members. Esc, a click on empty space or the ✕ on the chip clears it. |
 
-**The loop stops when it should.** Hovering a card holds it. So do the Motion pause button, an open filter sheet and an active cross-filter selection, and the loop never runs for reduced-motion users or in a hidden tab.
+## Use your own data
 
-**Cross-filtering.** Each query says which dimension its marks stand for. Clicking a mark stores a selection, and every other card on the page re-queries with it while the clicked card only highlights. Ctrl/⌘/Shift-click adds members. Esc, a click on empty space or the ✕ on the chip clears it.
+The charts only depend on one contract, in [src/data/types.ts](src/data/types.ts):
 
-## Using your own data
+```ts
+interface ChartQuery {
+    key: string;                     // cache key: same key, same result
+    columns: ColumnDef[];            // name, displayName and optional format ("$#,0", "0.0%")
+    run: () => Row[];                // returns the rows
+    crossFilter?: CrossFilterField;  // which dimension the marks stand for
+}
+```
 
-The visuals only know about one contract in [src/data/types.ts](src/data/types.ts): a query has a cache `key`, a list of `columns`, a `run()` that returns rows, and an optional `crossFilter` field. Replace the factories in [src/data/queries.ts](src/data/queries.ts) with your own SQL, DAX or API calls, and make `useQuery` in [src/data/use-query.ts](src/data/use-query.ts) await them. The charts and motion stay the same.
+To use real data:
+
+1. Replace the factories in [src/data/queries.ts](src/data/queries.ts) with your own SQL, DAX or API calls.
+2. Make `useQuery` in [src/data/use-query.ts](src/data/use-query.ts) await them.
+
+The charts and the motion stay the same.
 
 ## Screenshots
 
-| Light | Dark |
-| --- | --- |
-| ![Overview page in light mode](docs/overview.png) | ![Overview page in dark mode](docs/overview-dark.png) |
-| ![Variance page](docs/variance.png) | ![Customers page](docs/customers.png) |
-
-![Products page](docs/products.png)
+<table>
+  <tr>
+    <td width="50%"><img src="docs/overview.png" alt="Overview page in light mode"><p align="center">Overview</p></td>
+    <td width="50%"><img src="docs/overview-dark.png" alt="Overview page in dark mode"><p align="center">Overview, dark mode</p></td>
+  </tr>
+  <tr>
+    <td><img src="docs/variance.png" alt="Variance page"><p align="center">Variance</p></td>
+    <td><img src="docs/customers.png" alt="Customers page"><p align="center">Customers</p></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="docs/products.png" alt="Products page" width="50%"><p align="center">Products</p></td>
+  </tr>
+</table>
