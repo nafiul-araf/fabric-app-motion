@@ -1,6 +1,8 @@
 {
   "name": "fabric-app-motion",
   "description": "Motion patterns for data apps: charts that build mark by mark, odometer KPIs, a replay loop and click-to-cross-filter. React + Framer Motion.",
+  "license": "MIT",
+  "author": "Nafiul Araf",
   "private": true,
   "version": "0.1.0",
   "type": "module",

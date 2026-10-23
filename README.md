@@ -10,8 +10,9 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![Built with Claude Code](https://img.shields.io/badge/Built_with-Claude_Code-D97757?logo=claude&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-[Run it on localhost](#run-it-on-localhost) · [How I built it](#how-i-built-it) · [What's inside](#whats-inside) · [How the motion works](#how-the-motion-works) · [Use your own data](#use-your-own-data) · [Screenshots](#screenshots)
+[Run it on localhost](#run-it-on-localhost) · [How I built it](#how-i-built-it) · [What's inside](#whats-inside) · [How the motion works](#how-the-motion-works) · [Use your own data](#use-your-own-data) · [Screenshots](#screenshots) · [License](#license)
 
 <img src="docs/demo.gif" alt="The demo: the page builds, a click on a region filters every other visual, then the other pages open from the dock" width="100%">
 
@@ -271,3 +272,7 @@ The charts and the motion stay the same.
     <td colspan="2" align="center"><img src="docs/products.png" alt="Products page" width="50%"><p align="center">Products</p></td>
   </tr>
 </table>
+
+## License
+
+[MIT](LICENSE). You're free to use, copy, change and share this code, including in commercial work, as long as you keep the copyright and license notice.
