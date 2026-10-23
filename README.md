@@ -12,11 +12,17 @@
 ![Built with Claude Code](https://img.shields.io/badge/Built_with-Claude_Code-D97757?logo=claude&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-[Run it on localhost](#run-it-on-localhost) · [How I built it](#how-i-built-it) · [What's inside](#whats-inside) · [How the motion works](#how-the-motion-works) · [Use your own data](#use-your-own-data) · [Screenshots](#screenshots) · [License](#license)
+[![How I built it: see the prompts](https://img.shields.io/badge/How_I_built_it-See_the_prompts-D97757?style=for-the-badge&logo=claude&logoColor=white)](#how-i-built-it)
+[![Run it on localhost](https://img.shields.io/badge/Run_it-on_localhost-24292F?style=for-the-badge&logo=nodedotjs&logoColor=white)](#run-it-on-localhost)
+
+**[How I built it](#how-i-built-it)** · [Run it on localhost](#run-it-on-localhost) · [What's inside](#whats-inside) · [How the motion works](#how-the-motion-works) · [Use your own data](#use-your-own-data) · [Screenshots](#screenshots) · [License](#license)
 
 <img src="docs/demo.gif" alt="The demo: the page builds, a click on a region filters every other visual, then the other pages open from the dock" width="100%">
 
 </div>
+
+> [!IMPORTANT]
+> **Want to build one yourself?** Jump to **[How I built it](#how-i-built-it)** for every prompt I gave Claude Code, in order.
 
 ## What it does
 
@@ -29,62 +35,9 @@
 > [!NOTE]
 > The original app reads live data from a Power BI semantic model. This repo runs on generated sample data instead (a made-up coffee equipment wholesaler, every name invented), so it works anywhere with no account or connection.
 
-## Run it on localhost
-
-> [!TIP]
-> You don't need a Fabric or Power BI account. The demo creates its own sample data in the browser.
-
-### Prerequisites
-
-| You need | Version | Check with |
-| --- | --- | --- |
-| [Node.js](https://nodejs.org) (includes npm) | 20.19+, 22.13+ or 24+ (the LTS is fine) | `node --version` |
-| [Git](https://git-scm.com) | any recent version, or use **Code → Download ZIP** on GitHub | `git --version` |
-| A browser | current Chrome, Edge, Firefox or Safari | |
-
-### Steps
-
-**1. Clone the repo and go into the folder**
-
-```bash
-git clone https://github.com/nafiul-araf/fabric-app-motion.git
-cd fabric-app-motion
-```
-
-**2. Install the packages** (about a minute the first time)
-
-```bash
-npm install
-```
-
-**3. Start the app**
-
-```bash
-npm run dev
-```
-
-**4. Open [http://localhost:5173](http://localhost:5173)** in your browser. The page builds itself in, then keeps moving. To stop the server, press `Ctrl + C` in the terminal.
-
-### Other commands
-
-| Command | What it does |
-| --- | --- |
-| `npm test` | Runs the unit tests for the sample-data maths |
-| `npm run build` | Makes a production build in `dist/` |
-| `npm run preview` | Serves that build at http://localhost:4173 |
-| `npm run lint` | Checks the code with ESLint |
-
-### Troubleshooting
-
-| Problem | Fix |
-| --- | --- |
-| `npm install` fails or warns about the engine | Your Node.js is too old. Install a version from the table above and try again. |
-| Port 5173 is already in use | Vite picks the next free port and prints it in the terminal, so open that address. To choose one yourself: `npm run dev -- --port 3000` |
-| Windows PowerShell says `npm` "cannot be loaded because running scripts is disabled" | Run the same commands in Command Prompt, or use `npm.cmd install` and `npm.cmd run dev`. |
-
 ## How I built it
 
-I built the app with Claude Code in two rounds: first the Fabric App itself, then the motion version this repo comes from.
+I built the app with Claude Code and Rayfin in two rounds: first the Fabric App itself (13 prompts), then the motion version this repo comes from (5 prompts).
 
 > [!NOTE]
 > Placeholders like `<workspace name>` replace my real workspace link and names.
@@ -188,6 +141,59 @@ These are **exact**, copied as I typed them, typos included.
 > can you make 50% faster>
 
 </details>
+
+## Run it on localhost
+
+> [!TIP]
+> You don't need a Fabric or Power BI account. The demo creates its own sample data in the browser.
+
+### Prerequisites
+
+| You need | Version | Check with |
+| --- | --- | --- |
+| [Node.js](https://nodejs.org) (includes npm) | 20.19+, 22.13+ or 24+ (the LTS is fine) | `node --version` |
+| [Git](https://git-scm.com) | any recent version, or use **Code → Download ZIP** on GitHub | `git --version` |
+| A browser | current Chrome, Edge, Firefox or Safari | |
+
+### Steps
+
+**1. Clone the repo and go into the folder**
+
+```bash
+git clone https://github.com/nafiul-araf/fabric-app-motion.git
+cd fabric-app-motion
+```
+
+**2. Install the packages** (about a minute the first time)
+
+```bash
+npm install
+```
+
+**3. Start the app**
+
+```bash
+npm run dev
+```
+
+**4. Open [http://localhost:5173](http://localhost:5173)** in your browser. The page builds itself in, then keeps moving. To stop the server, press `Ctrl + C` in the terminal.
+
+### Other commands
+
+| Command | What it does |
+| --- | --- |
+| `npm test` | Runs the unit tests for the sample-data maths |
+| `npm run build` | Makes a production build in `dist/` |
+| `npm run preview` | Serves that build at http://localhost:4173 |
+| `npm run lint` | Checks the code with ESLint |
+
+### Troubleshooting
+
+| Problem | Fix |
+| --- | --- |
+| `npm install` fails or warns about the engine | Your Node.js is too old. Install a version from the table above and try again. |
+| Port 5173 is already in use | Vite picks the next free port and prints it in the terminal, so open that address. To choose one yourself: `npm run dev -- --port 3000` |
+| Windows PowerShell says `npm` "cannot be loaded because running scripts is disabled" | Run the same commands in Command Prompt, or use `npm.cmd install` and `npm.cmd run dev`. |
 
 ## What's inside
 
